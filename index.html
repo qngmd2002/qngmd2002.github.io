@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이진영 · 품질·공정관리</title>
+<style>
+/* ============================================================
+   색은 3가지입니다. 아래 숫자만 바꾸면 사이트 전체 색이 바뀝니다.
+     ink    = 글씨색 (짙은 남색)
+     paper  = 배경색 (밝은 아이보리)
+     accent = 강조색 (화사한 청록)
+   ============================================================ */
+:root{
+  --ink:#1e2b45;
+  --paper:#fbfaf6;
+  --accent:#0e9186;
+
+  --muted:#6b7484;
+  --line:#e4e2da;
+  --card:#ffffff;
+  --tint:#eaf6f4;
+
+  /* 여백 기준값 — 키우면 전체가 더 여유로워집니다 */
+  --gap:40px;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",sans-serif;
+  font-size:17px;
+  line-height:1.8;
+  letter-spacing:-.01em;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+/* ================= 첫 화면 ================= */
+.hero{padding:64px 0 var(--gap);border-bottom:1px solid var(--line);}
+.eyebrow{
+  display:inline-block;
+  font-size:13px;font-weight:700;letter-spacing:.16em;
+  color:#fff;background:var(--accent);
+  border-radius:3px;padding:5px 13px;margin:0 0 24px;line-height:1.4;
+}
+.name{
+  font-size:23px;font-weight:700;color:var(--muted);
+  margin:0 0 10px;letter-spacing:.02em;line-height:1.4;
+}
+.tagline{
+  font-size:33px;font-weight:800;line-height:1.35;
+  letter-spacing:-.03em;margin:0 0 26px;
+}
+.tagline .hl{color:var(--accent);}
+.basics{font-size:15px;color:var(--muted);margin:0;line-height:1.9;}
+.basics i{font-style:normal;color:var(--line);padding:0 8px;}
+
+.summary{list-style:none;margin:32px 0 0;padding:0;}
+.summary li{
+  background:var(--tint);
+  border:1px solid #d3e9e5;
+  border-left:4px solid var(--accent);
+  border-radius:3px;
+  padding:16px 18px;margin-bottom:12px;
+  font-size:16px;line-height:1.7;
+}
+.summary li:last-child{margin-bottom:0;}
+.summary b{font-weight:800;color:var(--accent);}
+
+/* ================= 대표 성과 ================= */
+.result{
+  margin-top:var(--gap);
+  padding:30px 24px;
+  background:var(--accent);color:#fff;border-radius:4px;
+}
+.result .label{
+  font-size:12px;font-weight:700;letter-spacing:.18em;
+  color:#b3e3dd;margin:0 0 14px;
+}
+.result .figure{
+  font-size:25px;font-weight:800;line-height:1.45;
+  letter-spacing:-.02em;margin:0 0 14px;
+}
+.result .figure em{font-style:normal;color:#fbe6a8;white-space:nowrap;}
+.result .desc{margin:0;font-size:15px;line-height:1.75;color:#daf0ed;}
+
+/* ================= 섹션 공통 ================= */
+section{padding:var(--gap) 0;border-bottom:1px solid var(--line);}
+h2{
+  font-size:14px;font-weight:800;letter-spacing:.14em;
+  color:var(--accent);margin:0 0 26px;padding-bottom:9px;
+  border-bottom:2px solid var(--accent);display:inline-block;
+}
+
+/* ================= 역량 카드 ================= */
+.cards{display:grid;grid-template-columns:1fr;gap:12px;}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:4px;padding:18px;
+}
+.card h3{
+  font-size:13px;font-weight:800;letter-spacing:.08em;
+  color:var(--accent);margin:0 0 12px;
+}
+.card ul{margin:0;padding:0;list-style:none;}
+.card li{
+  font-size:16px;line-height:1.7;padding:7px 0;
+  border-bottom:1px solid var(--line);
+}
+.card li:last-child{border-bottom:none;}
+.card li b{font-weight:800;}
+
+/* ================= 목록형 ================= */
+.rows{margin:0;padding:0;list-style:none;}
+.rows li{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:16px;padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:16px;line-height:1.6;
+}
+.rows li:last-child{border-bottom:none;}
+.rows .what{min-width:0;flex:1;}
+.rows .when{font-size:13px;color:var(--muted);white-space:nowrap;flex-shrink:0;}
+.rows .when.hours{color:var(--accent);font-weight:700;}
+
+/* ================= 프로젝트 ================= */
+.proj{
+  border-left:3px solid var(--accent);
+  padding:4px 0 4px 18px;margin-bottom:24px;
+}
+.proj:last-child{margin-bottom:0;}
+.proj .tag{
+  display:inline-block;font-size:12px;font-weight:700;
+  letter-spacing:.08em;color:var(--accent);
+  background:var(--tint);border-radius:2px;
+  padding:3px 9px;margin-bottom:7px;line-height:1.5;
+}
+.proj h3{font-size:18px;font-weight:800;margin:0 0 4px;line-height:1.5;}
+.proj p{margin:0;font-size:15px;color:var(--muted);line-height:1.7;}
+
+/* ================= 학력 타임라인 ================= */
+.timeline{position:relative;padding-left:26px;margin:0;}
+.timeline::before{
+  content:"";position:absolute;left:5px;top:10px;bottom:10px;
+  width:1px;background:var(--line);
+}
+.tl-item{position:relative;padding-bottom:26px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:"";position:absolute;left:-26px;top:10px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--line);
+}
+.tl-item.now::before{background:var(--accent);border-color:var(--accent);}
+.tl-date{
+  display:block;font-size:13px;font-weight:700;letter-spacing:.05em;
+  color:var(--accent);margin-bottom:3px;line-height:1.6;
+}
+.tl-title{font-size:18px;font-weight:800;margin:0 0 2px;line-height:1.5;}
+.tl-role{font-size:14px;color:var(--muted);margin:0;line-height:1.6;}
+
+/* ================= 연락처 ================= */
+.contact{border-bottom:none;padding-bottom:60px;}
+.mail{
+  display:inline-block;font-size:18px;font-weight:800;
+  color:var(--accent);text-decoration:none;
+  border-bottom:2px solid var(--accent);padding-bottom:3px;
+  line-height:1.6;max-width:100%;overflow-wrap:anywhere;
+}
+.mail:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}
+.note{margin-top:30px;font-size:14px;color:var(--muted);line-height:1.8;}
+
+/* ================= 작은 폰 ================= */
+@media (max-width:380px){
+  body{font-size:16px;}
+  .wrap{padding:0 18px;}
+  .tagline{font-size:26px;letter-spacing:-.035em;}
+  .result{padding:24px 18px;}
+  .result .figure{font-size:21px;}
+  .rows li{flex-direction:column;gap:2px;}
+}
+
+/* ================= 넓은 화면 ================= */
+@media (min-width:680px){
+  :root{--gap:56px;}
+  body{font-size:18px;}
+  .tagline{font-size:43px;}
+  .name{font-size:25px;}
+  .hero{padding:88px 0 var(--gap);}
+  .result{padding:38px 34px;}
+  .result .figure{font-size:30px;}
+  .cards{grid-template-columns:1fr 1fr;gap:16px;}
+}
+
+/* ================= 인쇄 ================= */
+@media print{
+  body{background:#fff;font-size:11pt;line-height:1.6;}
+  .result{background:#fff;color:var(--ink);border:1.5px solid var(--accent);}
+  .result .label,.result .desc{color:var(--muted);}
+  .result .figure em{color:var(--accent);}
+  .eyebrow{color:var(--accent);background:#fff;border:1px solid var(--accent);}
+  .summary li,.proj .tag{background:#fff;}
+  section{page-break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ===== 첫 화면 ===== -->
+  <header class="hero">
+    <!-- ↓ 지원 직무가 다르면 이 줄과 아래 한 줄 소개를 함께 고치세요 -->
+    <p class="eyebrow">품질·공정관리 지원</p>
+    <p class="name">이진영</p>
+    <h1 class="tagline">데이터로 <span class="hl">공정</span>을 읽는<br>전자공학 전공자</h1>
+    <p class="basics">
+      창원 거주<i>·</i>병역 만기 전역<i>·</i>1종 보통 운전면허
+    </p>
+
+    <ul class="summary">
+      <li>창원대 전자공학과 졸업 · 학점 <b>4.1 / 4.5</b></li>
+      <li>품질·공정 자격 <b>3종</b> — ISO 9001 예비심사원 · 6시그마 GB · ADsP</li>
+      <li>직무 교육 <b>167시간</b> 이수 · 자격증 <b>7종</b> 보유</li>
+    </ul>
+  </header>
+
+  <!-- ===== 대표 성과 ===== -->
+  <div class="result">
+    <p class="label">대표 이력</p>
+    <p class="figure">전국 자율로봇 경진대회 <em>장려상</em></p>
+    <p class="desc">학부연구생으로 2년간 연구실에 소속돼 설계·제어·데이터 분석을 이어왔습니다.</p>
+  </div>
+
+  <!-- ===== 보유 역량 ===== -->
+  <section>
+    <h2>보유 역량</h2>
+    <div class="cards">
+
+      <div class="card">
+        <h3>품질 · 공정</h3>
+        <ul>
+          <li><b>ISO 9001 예비심사원</b></li>
+          <li><b>6시그마 그린벨트(GB)</b></li>
+          <li>ISO 14001 &amp; 45001 내부심사원 교육 이수</li>
+          <li>공정관리 및 공정개선 실무 교육 이수</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>데이터 · AI</h3>
+        <ul>
+          <li><b>ADsP</b> (데이터분석 준전문가)</li>
+          <li><b>AICE BASIC</b></li>
+          <li>딥러닝 기반 가격 예측 프로젝트 수행</li>
+          <li>AI 디지털 활용 교육 31시간 이수</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>설계 · 도구</h3>
+        <ul>
+          <li>CAD 교육 21시간 이수</li>
+          <li>첨단 기계설계 인력 양성 교육 20시간</li>
+          <li><b>컴퓨터활용능력 1급</b></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>그 외</h3>
+        <ul>
+          <li><b>한국사능력검정시험 1급</b></li>
+          <li>TOEIC Speaking <b>IH</b> (2025.01)</li>
+          <li>자동차운전면허 1종 보통</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 교육 이수 ===== -->
+  <section>
+    <h2>교육 이수 · 167시간</h2>
+    <ul class="rows">
+      <li><span class="what">ISO 9001 (예비) 인증심사원</span><span class="when hours">32시간</span></li>
+      <li><span class="what">코드하우스 AI 디지털 활용 교육</span><span class="when hours">31시간</span></li>
+      <li><span class="what">ISO 14001 &amp; 45001 통합 내부심사원</span><span class="when hours">21시간</span></li>
+      <li><span class="what">6시그마(GB) 자격 과정</span><span class="when hours">21시간</span></li>
+      <li><span class="what">공정관리 및 공정개선 실무</span><span class="when hours">21시간</span></li>
+      <li><span class="what">CAD 교육</span><span class="when hours">21시간</span></li>
+      <li><span class="what">지자체 연계 첨단 기계설계 전문인력 양성</span><span class="when hours">20시간</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== 프로젝트 ===== -->
+  <!-- ↓ 각 프로젝트의 기간과 역할을 알려주시면 훨씬 세집니다 -->
+  <section>
+    <h2>프로젝트</h2>
+
+    <div class="proj">
+      <span class="tag">졸업작품</span>
+      <h3>자동차 급발진 방지 시스템 개발</h3>
+      <p>창원대학교 전자공학과 졸업작품</p>
+    </div>
+
+    <div class="proj">
+      <span class="tag">수상</span>
+      <h3>전국 자율로봇 경진대회</h3>
+      <p>장려상 수상</p>
+    </div>
+
+    <div class="proj">
+      <span class="tag">데이터 분석</span>
+      <h3>딥러닝을 활용한 농산물 가격 예측 대회</h3>
+      <p>딥러닝 모델 기반 가격 예측</p>
+    </div>
+
+    <div class="proj">
+      <span class="tag">설계 · 회로</span>
+      <h3>투석기 설계 대회 · 회로 창의 챌린지</h3>
+      <p>기구 설계와 회로 설계 과제 수행</p>
+    </div>
+
+    <div class="proj">
+      <span class="tag">지식재산</span>
+      <h3>특허 유니버시아드</h3>
+      <p>특허 발굴·출원 과정 참여</p>
+    </div>
+  </section>
+
+  <!-- ===== 활동 ===== -->
+  <section>
+    <h2>활동</h2>
+    <ul class="rows">
+      <li><span class="what">학부연구생</span><span class="when">2년</span></li>
+      <li><span class="what">로봇 동아리</span><span class="when">2년</span></li>
+      <li><span class="what">풋살 동아리</span><span class="when">3년</span></li>
+      <li><span class="what">전자공학과 학생회 홍보부장</span><span class="when">2021</span></li>
+    </ul>
+  </section>
+
+  <!-- ===== 학력 ===== -->
+  <section>
+    <h2>학력</h2>
+    <div class="timeline">
+      <div class="tl-item now">
+        <span class="tl-date">2026.02 졸업</span>
+        <p class="tl-title">창원대학교 전자공학과</p>
+        <p class="tl-role">학점 4.1 / 4.5</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2020.02 졸업</span>
+        <p class="tl-title">율하고등학교</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 연락처 ===== -->
+  <section class="contact">
+    <h2>연락처</h2>
+    <a class="mail" href="mailto:qngmd2002@naver.com">qngmd2002@naver.com</a>
+    <p class="note">헌혈 32회 · 헌혈유공장 은장</p>
+  </section>
+
+</div>
+
+</body>
+</html>
